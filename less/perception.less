@@ -1,0 +1,269 @@
+.perception {
+  &__container {
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    background-color: @item-color-inverted;
+
+    float: left;
+    .dir-rtl & {
+      float: right;
+    }
+  }
+
+  &__content {
+    width: 100%;
+
+    &.image-enabled,
+    &.text-enabled {
+      width: 50%;
+
+      @media all and (max-width: @device-width-small) {
+        width: 100%;
+      }
+    }
+
+    float: left;
+    .dir-rtl & {
+      float: right;
+    }
+
+    @media all and (max-width: @device-width-small) {
+      width: 100%;
+    }
+  }
+
+  &__content-inner {
+    padding-left: @component-body-margin;
+    padding-right: @component-body-margin;
+  }
+
+  &__content-title {
+    .item-title;
+    margin-bottom: @component-body-margin;
+  }
+
+  &__content-body {
+    margin-bottom: @component-body-margin;
+  }
+
+  &__indicators {
+    text-align: center;
+    background-color: @item-color-inverted;
+  }
+
+  &__controls {
+    display: inline-block;
+    width: @icon-size;
+    height: @icon-size;
+    text-decoration: none;
+    background-color: transparent;
+
+    .no-touch &:hover {
+      .icon {
+        color: @btn-color-hover;
+      }
+    }
+    .icon {
+      color: @btn-color;
+    }
+    &.perception__hidden {
+      visibility: hidden;
+    }
+  }
+
+  &__progress {
+    width: (@icon-size/2);
+    height: (@icon-size/2);
+    display: inline-block;
+    margin: (@icon-size/4);
+    border: inherit;
+    border-radius: 50%;
+    background-color: @disabled;
+
+    &.is-enabled {
+      cursor: pointer;
+      background-color: @item-color;
+    }
+
+    &.is-selected {
+      background-color: @item-color-selected;
+    }
+  }
+}
+
+.perception-item {
+  position: relative;
+  display: block;
+
+  float: left;
+  .dir-rtl & {
+    float: right;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__graphic {
+    width: 100%;
+    margin-bottom: @component-body-margin;
+
+    &.image-enabled,
+    &.text-enabled {
+      width: 50%;
+
+      @media all and (max-width: @device-width-small) {
+        width: 100%;
+      }
+    }
+
+    float: left;
+    .dir-rtl & {
+      float: right;
+    }
+
+    @media all and (max-width: @device-width-small) {
+      width: 100%;
+    }
+  }
+
+  &__options {
+    display: block;
+
+    @media all and (min-width: @device-width-small) {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: @btn-margin;
+    }
+  }
+
+  &__option {
+    margin-bottom: @item-margin;
+
+    &.is-selected {
+      background-color: @item-color-selected;
+    }
+
+    @media all and (max-width: @device-width-small) {
+      width: 100%;
+    }
+  }
+
+  &__option:first-child {
+    @media all and (min-width: @device-width-small) {
+      margin-right: @item-margin / 2;
+      .dir-rtl & {
+        margin-right: inherit;
+        margin-left: @item-margin / 2;
+      }
+    }
+  }
+
+  &__option:last-child {
+    @media all and (min-width: @device-width-small) {
+      margin-left: @item-margin / 2;
+      .dir-rtl & {
+        margin-left: inherit;
+        margin-right: @item-margin / 2;
+      }
+    }
+  }
+
+  &__option:not(:first-child):not(:last-child) {
+    @media all and (min-width: @device-width-small) {
+      margin-left: @item-margin / 2;
+      margin-right: @item-margin / 2;
+    }
+  }
+
+  &__title,
+  &__state {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__icon {
+    margin-left: @item-padding / 2;
+    .dir-rtl & {
+      margin-left: inherit;
+      margin-right: @item-padding / 2;
+    }
+
+    .icon:before {
+      line-height: 0.8;
+    }
+  }
+
+  &__icon-correct {
+    color: @btn-color-inverted;
+    display: none;
+  }
+
+  &__icon-incorrect {
+    color: @btn-color-inverted;
+    display: none;
+  }
+}
+
+.perception__widget {
+
+  &.show-user-answer {
+    .perception-item__icon {
+      display: none;
+    }
+    .is-incorrect {
+      .is-selected .perception-item__icon-incorrect {
+        display: block;
+      }
+    }
+    .is-correct {
+      .is-selected .perception-item__icon-correct {
+        display: block;
+      }
+    }
+
+    .perception__progress {
+      &.is-incorrect {
+        .perception-item__icon-incorrect {
+          display: block;
+        }
+      }
+      &.is-correct {
+        .perception-item__icon-correct {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &.show-correct-answer {
+    .perception-item__icon {
+      display: none;
+    }
+    .is-incorrect .is-selected .perception-item__icon-correct,
+    .is-correct .is-selected .perception-item__icon-correct {
+      display: block;
+    }
+  }
+
+  &.is-disabled {
+    .perception-item__option {
+      &.is-disabled {
+        color: @disabled-inverted;
+        background-color: @disabled;
+      }
+    }
+    .perception-item__option {
+      &.is-selected.is-disabled {
+        color: @item-color-inverted-selected !important;
+        background-color: @item-color-selected !important;
+      }
+    }
+  }
+}

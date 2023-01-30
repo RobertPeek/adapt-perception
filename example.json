@@ -1,0 +1,77 @@
+{
+  "_id": "c-105",
+  "_parentId": "b-55",
+  "_type": "component",
+  "_component": "perception",
+  "_classes": "",
+  "_layout": "full",
+  "_attempts": 1,
+  "_shouldDisplayAttempts": false,
+  "_questionWeight": 1,
+  "_isRandom": false,
+  "_canShowModelAnswer": true,
+  "_canShowFeedback": true,
+  "_canShowMarking": true,
+  "_recordInteraction": true,
+  "title": "Perception Question",
+  "displayTitle": "Perception Question",
+  "body": "",
+  "instruction": "",
+  "_options": [
+    {
+      "text": "Yes"
+    },
+    {
+      "text": "No"
+    }
+  ],
+  "_items": [
+    {
+      "_correctOption": 1,
+      "title": "",
+      "body": "",
+      "_graphic": {
+        "_src": "",
+        "alt": ""
+      }
+    },
+    {
+      "_correctOption": 2,
+      "title": "",
+      "body": "",
+      "_graphic": {
+        "_src": "",
+        "alt": ""
+      }
+    },
+    {
+      "_correctOption": 1,
+      "title": "",
+      "body": "",
+      "_graphic": {
+        "_src": "",
+        "alt": ""
+      }
+    },
+    {
+      "_correctOption": 2,
+      "title": "",
+      "body": "",
+      "_graphic": {
+        "_src": "",
+        "alt": ""
+      }
+    }
+  ],
+  "_feedback": {
+    "correct": "Congratulations, this is the correct feedback.",
+    "_incorrect": {
+      "notFinal": "",
+      "final": "This feedback will appear if you answered the question incorrectly."
+    },
+    "_partlyCorrect": {
+      "notFinal": "",
+      "final": "This feedback will appear if you answered the question correctly."
+    }
+  }
+}

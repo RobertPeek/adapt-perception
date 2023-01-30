@@ -1,0 +1,16 @@
+{
+  "name": "adapt-perception",
+  "version": "1.0.0",
+  "framework": ">=5.20.1",
+  "homepage": "https://github.com/RobertPeek/adapt-perception",
+  "issues": "https://github.com/RobertPeek/adapt-perception/issues/",
+  "displayName" : "Perception Question",
+  "component" : "perception",
+  "description": "A perception question component",
+  "main": "/js/adapt-perception.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPL-3.0"
+}

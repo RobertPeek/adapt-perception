@@ -1,0 +1,84 @@
+<div class="perception__inner component__inner">
+    {{> component this}}
+    <div class="perception__widget component__widget {{#unless _isEnabled}} is-disabled {{#if _isInteractionComplete}} is-complete is-submitted show-user-answer {{#if _isCorrect}}is-correct{{/if}} {{/if}} {{/unless}}">
+      <div class="perception__container">
+				<div class="perception__slider">
+					{{#each _items}}
+					<div class="perception-item {{#unless ../_isEnabled}}{{#if ../_canShowMarking}}{{#if _isCorrect}}is-correct{{else}}is-incorrect{{/if}}{{/if}}{{/unless}} item-{{@index}}">
+
+            {{#if _graphic._src}}
+            <div class="perception-item__graphic{{#any title body}} text-enabled{{/any}}">
+  						<img src="{{_graphic._src}}"{{#if alt}} aria-label="{{alt}}" tabindex="0"{{else}} class="a11y-ignore" aria-hidden="true" tabindex="-1"{{/if}}/>
+  					</div>
+            {{/if}}
+
+            {{#any title body}}
+            <div class="perception__content{{#if _graphic._src}} image-enabled{{/if}}">
+              <div class="perception__content-inner">
+
+                {{#if title}}
+                <div class="perception__content-title">
+                  <div class="perception__content-title-inner">
+                    {{{title}}}
+                  </div>
+                </div>
+                {{/if}}
+
+                {{#if body}}
+                <div class="perception__content-body">
+                  <div class="perception__content-body-inner">
+                    {{{compile body}}}
+                  </div>
+                </div>
+                {{/if}}
+
+              </div>
+            </div>
+            {{/any}}
+
+            <div class="perception-item__options">
+              {{#each ../_options}}
+                <button class="perception-item__option btn-text option-{{@index}}" id="{{@../index}}" aria-label="">
+                  <span class="perception-item__title">
+                    {{{text}}}
+                  </span>
+                  <span class="perception-item__state">
+                    <span class="perception-item__icon perception-item__icon-correct">
+                      <span class="icon icon-tick"></span>
+                    </span>
+                    <span class="perception-item__icon perception-item__icon-incorrect">
+                      <span class="icon icon-cross"></span>
+                    </span>
+                  </span>
+                </button>
+              {{/each}}
+            </div>
+
+					</div>
+					{{/each}}
+				</div>
+			</div>
+
+      <div class="u-clearfix"></div>
+
+      <div class="perception__indicators">
+
+        <button class="perception__controls perception__control-left" aria-label="{{_globals._accessibility._ariaLabels.previous}}">
+          <span class="icon icon-controls-left"></span>
+        </button>
+
+        {{#each _items}}
+        <div class="perception__progress"></div>
+        {{/each}}
+
+        <button class="perception__controls perception__control-right" aria-label="{{_globals._accessibility._ariaLabels.next}}">
+          <span class="icon icon-controls-right"></span>
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="btn__container"></div>
+
+</div>
